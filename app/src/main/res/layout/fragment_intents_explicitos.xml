@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".IntentsExplicitos">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enviar Email" />
+
+            <Button
+                android:id="@+id/btnWeb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Abrir Sitio Web" />
+
+            <Button
+                android:id="@+id/btnAlarma"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Crear Alarma" />
+
+            <Button
+                android:id="@+id/btnFoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tomar Foto" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnMapa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Abrir Mapa" />
+
+            <Button
+                android:id="@+id/btnLlamar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Llamar al 112" />
+
+            <Button
+                android:id="@+id/btnSMS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enviar SMS" />
+
+            <Button
+                android:id="@+id/btnContactos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Abrir Contactos" />
+
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

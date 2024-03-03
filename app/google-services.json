@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "1096903516189",
+    "firebase_url": "https://resumenev2-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "resumenev2",
+    "storage_bucket": "resumenev2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1096903516189:android:e003b8623ed22b4bf566f4",
+        "android_client_info": {
+          "package_name": "com.example.resumenev2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCiWw6HFPXTpuB6y33bSsrw6adVdVs3JYM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
