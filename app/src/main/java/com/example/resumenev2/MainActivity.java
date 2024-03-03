@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                         ft.commit();
                         break;
                     case 5:
-                        ft.replace(R.id.flContenedor, new LoginFBFrag());
+                        ft.replace(R.id.flContenedor, new FBDBCloudStorageIMG());
                         ft.addToBackStack(null);
                         ft.commit();
                         break;
