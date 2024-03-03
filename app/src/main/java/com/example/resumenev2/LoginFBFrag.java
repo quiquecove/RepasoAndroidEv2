@@ -1,12 +1,25 @@
 package com.example.resumenev2;
 
+import static android.content.ContentValues.TAG;
+
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +36,12 @@ public class LoginFBFrag extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private FirebaseAuth miFirebaseAuth;
+    private FirebaseAuth fba;
+    private FirebaseUser user;
+    private EditText email,password;
+    private Button btnAcceder, btnRegistrar;
 
     public LoginFBFrag() {
         // Required empty public constructor
@@ -59,6 +78,61 @@ public class LoginFBFrag extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login_f_b, container, false);
+        View view = inflater.inflate(R.layout.fragment_login_f_b, container, false);
+        miFirebaseAuth = FirebaseAuth.getInstance();
+        email = view.findViewById(R.id.usr);
+        password = view.findViewById(R.id.pass);
+        btnAcceder = view.findViewById(R.id.acceder);
+        btnRegistrar = view.findViewById(R.id.registrar);
+        btnAcceder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                acceder(view);
+            }
+        });
+        btnRegistrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                registrar(view);
+            }
+        });
+        return view;
     }
+
+    public void acceder(View view) {
+        miFirebaseAuth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString())
+                .addOnCompleteListener(requireActivity(), new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            FirebaseUser user = miFirebaseAuth.getCurrentUser();
+                            Toast.makeText(requireContext(), "Inicio de Sesion exitoso!", Toast.LENGTH_SHORT).show();
+
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Toast.makeText(requireContext(), "Authentication failed.", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+
+    public void registrar(View view) {
+        miFirebaseAuth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString())
+                .addOnCompleteListener(requireActivity(), new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            FirebaseUser user = miFirebaseAuth.getCurrentUser();
+                            Toast.makeText(requireContext(), "Registro exitoso!.", Toast.LENGTH_SHORT).show();
+
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Toast.makeText(requireContext(), "Authentication failed.", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+
 }
