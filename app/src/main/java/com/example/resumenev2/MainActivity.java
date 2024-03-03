@@ -54,7 +54,19 @@ public class MainActivity extends AppCompatActivity {
                         ft.addToBackStack(null);
                         ft.commit();
                         break;
+                    case 4:
+                        ft.replace(R.id.flContenedor, new FBDataBasePersonajes());
+                        ft.addToBackStack(null);
+                        ft.commit();
+                        break;
+                    case 5:
+                        ft.replace(R.id.flContenedor, new LoginFBFrag());
+                        ft.addToBackStack(null);
+                        ft.commit();
+                        break;
                 }
+
+
             }
 
             @Override

@@ -1,14 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FBDataBasePersonajes">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
 
+        <EditText
+            android:id="@+id/etnombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="Nombre..."
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/insertar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="296dp"
+            android:onClick="insertar"
+            android:text="Insertar"
+            app:layout_constraintEnd_toEndOf="@+id/etnombre"
+            app:layout_constraintStart_toStartOf="@+id/etnombre"
+            app:layout_constraintTop_toBottomOf="@+id/etnombre" />
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="184dp"
+            android:layout_height="206dp"
+            android:layout_marginTop="88dp"
+            app:layout_constraintEnd_toEndOf="@+id/etnombre"
+            app:layout_constraintStart_toStartOf="@+id/etnombre"
+            app:layout_constraintTop_toBottomOf="@+id/insertar" />
+
+        <EditText
+            android:id="@+id/apellido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+            android:ems="10"
+            android:hint="apellido..."
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="@+id/etnombre"
+            app:layout_constraintStart_toStartOf="@+id/etnombre"
+            app:layout_constraintTop_toBottomOf="@+id/etnombre" />
+
+        <EditText
+            android:id="@+id/edad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="edad..."
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="@+id/apellido"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/apellido"
+            app:layout_constraintTop_toBottomOf="@+id/apellido" />
+
+        <EditText
+            android:id="@+id/hobbies"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:ems="10"
+            android:hint="aficiones,...,"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="@+id/edad"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/edad"
+            app:layout_constraintTop_toBottomOf="@+id/adulto" />
+
+        <Switch
+            android:id="@+id/adulto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="esAdulto"
+            app:layout_constraintEnd_toEndOf="@+id/edad"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/edad"
+            app:layout_constraintTop_toBottomOf="@+id/edad" />
+
+        <Button
+            android:id="@+id/addAmigo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:onClick="insertarAmigo"
+            android:text="Add Amigo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/insertar" />
+
+        <Button
+            android:id="@+id/removeAmigo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="eliminarAmigo"
+            android:text="Eliminar amigo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/addAmigo"
+            app:layout_constraintTop_toBottomOf="@+id/insertar" />
+
+        <Button
+            android:id="@+id/listar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:onClick="listar"
+            android:text="Listar"
+            app:layout_constraintEnd_toEndOf="@+id/removeAmigo"
+            app:layout_constraintHorizontal_bias="0.461"
+            app:layout_constraintStart_toStartOf="@+id/addAmigo"
+            app:layout_constraintTop_toBottomOf="@+id/insertar" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
