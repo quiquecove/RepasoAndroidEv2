@@ -12,7 +12,7 @@ import com.example.resumenev2.R;
 
 import java.util.ArrayList;
 
-public class MiAdaptador extends RecyclerView.Adapter<MiAdaptador.MiViewHolder> {
+public class  MiAdaptador extends RecyclerView.Adapter<MiAdaptador.MiViewHolder> {
     private ArrayList<ItemLista> datos;
     private View.OnClickListener listener;
 

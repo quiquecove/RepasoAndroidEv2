@@ -29,6 +29,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.ListResult;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
 import java.util.Random;
@@ -130,6 +131,7 @@ public class FBDBCloudStorageIMG extends Fragment {
                 });
         return view;
     }
+
     public void capturar(View view) {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getContext().getPackageManager()) != null) {
@@ -153,9 +155,23 @@ public class FBDBCloudStorageIMG extends Fragment {
         StorageReference imageRef = storageRef.child("imagenes/" + fileName);
 
         // Subir la imagen a Cloud Storage
-        Toast.makeText(getContext(), "Foto Subida", Toast.LENGTH_SHORT).show();
-
+        imageRef.putBytes(data)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        // La imagen se ha subido correctamente
+                        Toast.makeText(getContext(), "Foto subida correctamente", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Error al subir la imagen
+                        Toast.makeText(getContext(), "Error al subir la foto: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
+
 
     public void seleccionarImagenAleatoria(View view) {
         StorageReference fotosRef = FirebaseStorage.getInstance().getReference().child("imagenes");
